@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Torrent to Real-Debrid",
+  "version": "1.0",
+  "description": "Scrapes info hashes from torrent sites and sends them directly to your Real-Debrid account. One click, no torrent client needed.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.real-debrid.com/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://audiobookbay.lu/*",
+        "https://audiobookbay.se/*",
+        "https://audiobookbay.is/*",
+        "https://audiobookbay.fi/*",
+        "https://audiobookbay.com/*",
+        "https://www.audiobookbay.lu/*",
+        "https://www.audiobookbay.se/*",
+        "https://www.audiobookbay.is/*",
+        "https://www.audiobookbay.fi/*",
+        "https://www.audiobookbay.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["content-tpb.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

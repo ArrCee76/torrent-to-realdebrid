@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Torrent to Real-Debrid — Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 16px;
+      min-width: 380px;
+      background: #1a1a2e;
+      color: #e0e0e0;
+    }
+    h2 { margin: 0 0 16px 0; font-size: 16px; color: #7bed9f; }
+    label { display: block; margin-bottom: 4px; margin-top: 12px; font-size: 13px; color: #aaa; }
+    input[type="text"], input[type="password"] {
+      width: 100%; padding: 8px 10px; border: 1px solid #333; border-radius: 6px;
+      background: #16213e; color: #e0e0e0; font-size: 13px; box-sizing: border-box;
+    }
+    input:focus { outline: none; border-color: #7bed9f; }
+    .btn {
+      margin-top: 14px; padding: 8px 20px; border: none; border-radius: 6px;
+      cursor: pointer; font-size: 13px; font-weight: 600; background: #7bed9f; color: #1a1a2e;
+    }
+    .btn:hover { background: #6ddb8f; }
+    .status { margin-top: 10px; font-size: 12px; min-height: 18px; }
+    .hint { margin-top: 6px; font-size: 11px; color: #666; }
+    a { color: #48dbfb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h2>⚡ Torrent to Real-Debrid</h2>
+
+  <label for="rdApiKey">Real-Debrid API Key</label>
+  <input type="password" id="rdApiKey" placeholder="Paste your API key here">
+  <p class="hint">Get your API key from <a href="https://real-debrid.com/apitoken" target="_blank">real-debrid.com/apitoken</a></p>
+
+  <button class="btn" id="saveBtn">Save & Test</button>
+  <p class="status" id="status"></p>
+
+  <script src="options.js"></script>
+</body>
+</html>

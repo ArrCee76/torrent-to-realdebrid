@@ -1,0 +1,98 @@
+/* ABB Magnet + Real-Debrid banner */
+
+#abb-magnet-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  background: #1a1a2e;
+  border-bottom: 3px solid #7bed9f;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.abb-title {
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.abb-btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.abb-btn {
+  padding: 7px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.abb-btn:hover {
+  transform: translateY(-1px);
+}
+
+.abb-btn:active {
+  transform: translateY(0);
+}
+
+.abb-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.abb-btn-magnet {
+  background: #7bed9f;
+  color: #1a1a2e;
+}
+
+.abb-btn-magnet:hover {
+  background: #6ddb8f;
+}
+
+.abb-btn-copy {
+  background: #48dbfb;
+  color: #1a1a2e;
+}
+
+.abb-btn-copy:hover {
+  background: #3ac9e8;
+}
+
+.abb-btn-rd {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+.abb-btn-rd:hover {
+  background: #ee5a5a;
+}
+
+.abb-btn-cancel {
+  background: #444;
+  color: #ccc;
+}
+
+.abb-btn-cancel:hover {
+  background: #555;
+}
+
+.abb-status {
+  font-size: 12px;
+  color: #aaa;
+  min-height: 16px;
+}
