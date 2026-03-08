@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Torrent to Real-Debrid",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Scrapes info hashes from torrent sites and sends them directly to your Real-Debrid account. One click, no torrent client needed.",
   "permissions": [
     "storage"

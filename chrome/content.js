@@ -36,9 +36,21 @@
   const banner = document.createElement('div');
   banner.id = 'abb-magnet-banner';
 
+  const topRow = document.createElement('div');
+  topRow.style.display = 'flex';
+  topRow.style.alignItems = 'center';
+  topRow.style.gap = '10px';
+
   const titleEl = document.createElement('span');
   titleEl.className = 'abb-title';
   titleEl.textContent = '🎧 ' + title;
+
+  const cacheTag = document.createElement('span');
+  cacheTag.className = 'abb-cache-tag abb-cache-checking';
+  cacheTag.textContent = '⏳ Checking RD cache...';
+
+  topRow.appendChild(titleEl);
+  topRow.appendChild(cacheTag);
 
   const statusEl = document.createElement('div');
   statusEl.className = 'abb-status';
@@ -96,8 +108,32 @@
   btnRow.appendChild(rdBtn);
   btnRow.appendChild(cancelBtn);
 
-  banner.appendChild(titleEl);
+  banner.appendChild(topRow);
   banner.appendChild(btnRow);
   banner.appendChild(statusEl);
   document.body.prepend(banner);
+
+  // Auto-check RD cache
+  chrome.runtime.sendMessage(
+    { action: 'checkCache', hash: hash, magnet: magnet },
+    (response) => {
+      if (chrome.runtime.lastError) {
+        cacheTag.textContent = '⚠️ Cache check failed';
+        cacheTag.className = 'abb-cache-tag abb-cache-uncached';
+        return;
+      }
+      if (response && response.ok) {
+        if (response.cached) {
+          cacheTag.textContent = '✅ Cached on RD — instant download';
+          cacheTag.className = 'abb-cache-tag abb-cache-cached';
+        } else {
+          cacheTag.textContent = '⚠️ Not cached on RD — may be slow or fail';
+          cacheTag.className = 'abb-cache-tag abb-cache-uncached';
+        }
+      } else {
+        cacheTag.textContent = '⚠️ ' + (response ? response.error : 'Cache check failed');
+        cacheTag.className = 'abb-cache-tag abb-cache-uncached';
+      }
+    }
+  );
 })();

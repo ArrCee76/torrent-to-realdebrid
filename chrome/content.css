@@ -25,6 +25,33 @@
   text-overflow: ellipsis;
 }
 
+/* Cache status tags */
+.abb-cache-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.abb-cache-checking {
+  background: #2d2d44;
+  color: #ffd93d;
+}
+
+.abb-cache-cached {
+  background: #1a3a2a;
+  color: #7bed9f;
+  border: 1px solid #7bed9f44;
+}
+
+.abb-cache-uncached {
+  background: #3a1a1a;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b44;
+}
+
 .abb-btn-row {
   display: flex;
   gap: 8px;
