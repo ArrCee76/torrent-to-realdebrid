@@ -6,7 +6,7 @@
   if (document.getElementById('abb-magnet-banner')) return;
 
   function findInfoHash() {
-    const match = document.body.innerText.match(/Info Hash:\s*([a-fA-F0-9]{40})/i);
+    const match = document.body.innerText.match(/Info\s*Hash\s*:\s*([a-fA-F0-9]{40})/i);
     return match ? match[1].toLowerCase() : null;
   }
 

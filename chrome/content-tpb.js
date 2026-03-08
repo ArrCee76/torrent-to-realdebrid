@@ -13,7 +13,7 @@
 
   // Check if this looks like a torrent page
   const allText = document.body.innerText;
-  const hashMatch = allText.match(/Info Hash:\s*([a-fA-F0-9]{40})/i);
+  const hashMatch = allText.match(/Info\s*Hash\s*:\s*([a-fA-F0-9]{40})/i);
   if (!hashMatch) return;
 
   const looksLikeTorrentSite = /seeders|leechers|magnet|torrent/i.test(allText);
